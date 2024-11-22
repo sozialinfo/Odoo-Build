@@ -14,10 +14,6 @@
 	path = addons/server_tools
 	url = git@github.com:Mint-System/Odoo-Apps-Server-Tools.git
 	branch = 16.0
-[submodule "oca/web"]
-	path = oca/web
-	url = git@github.com:OCA/web.git
-	branch = 16.0
 [submodule "oca/server-tools"]
 	path = oca/server-tools
 	url = git@github.com:OCA/server-tools.git
@@ -98,10 +94,6 @@
 	path = addons/account_reconcile
 	url = git@github.com:Mint-System/Odoo-Apps-Account-Reconcile.git
 	branch = 16.0
-[submodule "oca/hr-attendance"]
-	path = oca/hr-attendance
-	url = git@github.com:sozialinfo/hr-attendance.git
-	branch = 16.0
 [submodule "oca/hr-holidays"]
 	path = oca/hr-holidays
 	url = git@github.com:OCA/hr-holidays.git
@@ -113,4 +105,12 @@
 [submodule "oca/survey"]
 	path = oca/survey
 	url = git@github.com:OCA/survey.git
+	branch = 16.0
+[submodule "addons/hr-attendance"]
+	path = addons/hr-attendance
+	url = git@github.com:sozialinfo/hr-attendance.git
+	branch = 16.0
+[submodule "addons/web"]
+	path = addons/web
+	url = git@github.com:sozialinfo/web.git
 	branch = 16.0
