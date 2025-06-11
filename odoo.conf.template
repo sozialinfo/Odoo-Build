@@ -21,3 +21,7 @@ git.ssh_public_key = $GIT_SSH_PUBLIC_KEY
 git.ssh_private_key = $GIT_SSH_PRIVATE_KEY
 uploadcare.public_key = $UPLOADCARE_PUBLIC_KEY
 uploadcare.secret_key = $UPLOADCARE_SECRET_KEY
+keycloak.base_url = $KEYCLOAK_BASE_URL
+keycloak.client_id = $KEYCLOAK_CLIENT_ID
+keycloak.client_secret = $KEYCLOAK_CLIENT_SECRET
+keycloak.realm = $KEYCLOAK_REALM
