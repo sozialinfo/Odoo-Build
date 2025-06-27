@@ -17,6 +17,8 @@ smtp_password = $SMTP_PASSWORD
 email_from = $EMAIL_FROM
 
 [ir.config_parameter]
+base_url_website = $BASE_URL_WEBSITE
+base_url_app = $BASE_URL_APP
 git.ssh_public_key = $GIT_SSH_PUBLIC_KEY
 git.ssh_private_key = $GIT_SSH_PRIVATE_KEY
 uploadcare.public_key = $UPLOADCARE_PUBLIC_KEY
