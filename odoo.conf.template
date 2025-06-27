@@ -17,13 +17,13 @@ smtp_password = $SMTP_PASSWORD
 email_from = $EMAIL_FROM
 
 [ir.config_parameter]
-base_url_website = $BASE_URL_WEBSITE
-base_url_app = $BASE_URL_APP
-git.ssh_public_key = $GIT_SSH_PUBLIC_KEY
-git.ssh_private_key = $GIT_SSH_PRIVATE_KEY
-uploadcare.public_key = $UPLOADCARE_PUBLIC_KEY
-uploadcare.secret_key = $UPLOADCARE_SECRET_KEY
-keycloak.base_url = $KEYCLOAK_BASE_URL
-keycloak.client_id = $KEYCLOAK_CLIENT_ID
-keycloak.client_secret = $KEYCLOAK_CLIENT_SECRET
-keycloak.realm = $KEYCLOAK_REALM
+$GIT_SSH_PUBLIC_KEY_PARAM
+$GIT_SSH_PRIVATE_KEY_PARAM
+$BASE_URL_WEBSITE_PARAM
+$BASE_URL_APP_PARAM
+$UPLOADCARE_PUBLIC_KEY_PARAM
+$UPLOADCARE_SECRET_KEY_PARAM
+$KEYCLOAK_BASE_URL_PARAM
+$KEYCLOAK_CLIENT_ID_PARAM
+$KEYCLOAK_CLIENT_SECRET_PARAM
+$KEYCLOAK_REALM_PARAM
