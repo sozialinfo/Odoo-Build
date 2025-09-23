@@ -104,10 +104,11 @@ The browser will be opened automatically.
 
 ### Run Odoo as container
 
-Set the Odoo addons path in your `.env` file:
+Set the Odoo addons path in your `.env` file and set POSTGRES_SSL=off:
 
 ```bash
 ODOO_ADDONS_PATH=/mnt/addons/,/mnt/oca/,/mnt/enterprise,/mnt/themes/
+POSTGRES_SSL=off
 ```
 
 Run container compose.
