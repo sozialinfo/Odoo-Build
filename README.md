@@ -22,7 +22,42 @@ This projects provides a highly opinionated way to manage and develop Odoo. It f
 * 🧠 **LLM**: Start an MCP server and interact with Odoo through an LLM.
 * 🚀 **And More**: See [task help](./task.md).
 
-## Requirements
+## Quick Start (Simplified Setup)
+
+**For local development with Docker Compose only:**
+
+1. **Checkout Odoo and addons:**
+   ```bash
+   ./task checkout 16.0
+   ```
+
+2. **Setup environment:**
+   ```bash
+   cp .env.template .env
+   # Edit .env if needed (optional)
+   ```
+
+3. **Start Odoo:**
+   ```bash
+   docker compose -f compose.dev.yml up
+   ```
+
+That's it! 🎉
+
+- **Odoo**: http://localhost:8069
+- **PgAdmin**: http://localhost:8000 (admin@example.com / admin)
+- **Mailpit**: http://localhost:8025
+
+**Note:** This simplified setup uses the `.env` file for all configuration and skips the Python virtual environment setup. All Odoo code runs inside containers.
+
+### When to use which setup?
+
+- **Quick Start (Simplified)**: Perfect for addon development, testing, and when you want to get started fast
+- **Full Setup (Advanced)**: Better for core Odoo development, debugging, and when you need direct access to Python environments
+
+## Full Setup (Advanced)
+
+**For development with Python virtual environment and native Odoo:**
 
 The Odoo development environment has the following requirements:
 
@@ -77,6 +112,8 @@ Install build and Python dependencies. Currently supported: Arch Linux, Darwin, 
 ```bash
 task install
 ```
+
+**Note:** The `task install` step is only needed for the advanced setup. The simplified Docker Compose setup above skips this step entirely.
 
 Decide wether you want to run Odoo in native mode (recommended) or as a container.
 

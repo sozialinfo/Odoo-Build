@@ -1,0 +1,89 @@
+name: odoo-build
+services:
+  odoo:
+    container_name: odoo
+    image: "${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
+    depends_on:
+        db:
+            condition: service_healthy
+    env_file:
+      - .env
+    ports:
+      - "${ODOO_PORT}:8069"
+    volumes:
+      - odoo-data:/var/lib/odoo
+      - ./addons:/mnt/addons
+      - ./oca:/mnt/oca
+      - ./enterprise:/mnt/enterprise
+      - ./themes:/mnt/themes
+      - ./thirdparty:/mnt/thirdparty
+    networks:
+      - default
+
+  admin:
+    container_name: admin
+    image: docker.io/dpage/pgadmin4:6
+    depends_on:
+      - db
+    ports:
+      - "8000:80"
+    env_file:
+      - .env
+    volumes:
+      - admin-data:/var/lib/pgadmin
+      - ./servers.json:/pgadmin4/servers.json
+    networks:
+      - default
+
+  db:
+    container_name: db
+    image: "${POSTGRES_IMAGE}"
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    env_file:
+      - .env
+    volumes:
+      - db-data:/var/lib/postgresql/data/pgdata
+    command:
+      [
+        "postgres",
+        "-c", "ssl=${POSTGRES_SSL}"
+      ]
+    networks:
+      - default
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U odoo -d ${ODOO_DATABASE}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  mailpit:
+    image: docker.io/axllent/mailpit
+    container_name: mailpit
+    hostname: mailpit
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+    networks:
+      - default
+
+  mailgate:
+    image: mintsystem/odoo-mailgate
+    container_name: mailgate
+    hostname: mailgate
+    ports:
+      - "25:25"
+      - "587:587"
+    env_file:
+      - .env
+    networks:
+      - default
+
+volumes:
+  odoo-data:
+  db-data:
+  admin-data:
+
+networks:
+  default:
+    name: odoo-build_default
